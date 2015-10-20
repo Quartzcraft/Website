@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon addon_id="prism" title="Prism" version_string="1.0.0" version_id="1" url="http://quartzcraft.co.uk/prism" install_callback_class="" install_callback_method="" uninstall_callback_class="" uninstall_callback_method="">
+  <admin_navigation/>
+  <admin_permissions/>
+  <admin_style_properties/>
+  <admin_templates/>
+  <admin_template_modifications/>
+  <code_events/>
+  <code_event_listeners/>
+  <cron/>
+  <email_templates/>
+  <email_template_modifications/>
+  <optiongroups>
+    <group group_id="prism" display_order="9" debug_only="0"/>
+    <option option_id="prismOn" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>0</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="prism" display_order="0"/>
+    </option>
+    <option option_id="prismURL" edit_format="textbox" data_type="string" can_backup="1">
+      <default_value>http://quartzcraft.co.uk</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="prism" display_order="1"/>
+    </option>
+  </optiongroups>
+  <permissions>
+    <permission_groups>
+      <permission_group permission_group_id="prismPerms"/>
+    </permission_groups>
+    <permissions>
+      <permission permission_group_id="prismPerms" permission_id="canAccessPrism" permission_type="flag" default_value="unset" interface_group_id="prismPerms" display_order="1"/>
+    </permissions>
+    <interface_groups>
+      <interface_group interface_group_id="prismPerms" display_order="1000"/>
+    </interface_groups>
+  </permissions>
+  <phrases>
+    <phrase title="option_group_prism" version_id="1" version_string="1.0.0"><![CDATA[[QC] Prism Options]]></phrase>
+    <phrase title="option_group_prism_description" version_id="1" version_string="1.0.0"><![CDATA[Simple options for prism]]></phrase>
+    <phrase title="option_prismOn" version_id="1" version_string="1.0.0"><![CDATA[Prism link displayed]]></phrase>
+    <phrase title="option_prismOn_explain" version_id="1" version_string="1.0.0"><![CDATA[Display the link to prism on a users profile.]]></phrase>
+    <phrase title="option_prismURL" version_id="1" version_string="1.0.0"><![CDATA[Prism URL]]></phrase>
+    <phrase title="option_prismURL_explain" version_id="1" version_string="1.0.0"><![CDATA[URL used to access prism. Without the trailing /]]></phrase>
+    <phrase title="permission_group_prismPerms" version_id="1" version_string="1.0.0"><![CDATA[Prism Permissions]]></phrase>
+    <phrase title="permission_interface_prismPerms" version_id="1" version_string="1.0.0"><![CDATA[Prism Permissions]]></phrase>
+    <phrase title="permission_prismPerms_canAccessPrism" version_id="1" version_string="1.0.0"><![CDATA[Can Access Prism]]></phrase>
+    <phrase title="view_player_in_prism" version_id="1" version_string="1.0.0"><![CDATA[View player in Prism]]></phrase>
+  </phrases>
+  <route_prefixes/>
+  <style_properties/>
+  <templates/>
+  <public_template_modifications>
+    <modification template="member_view" modification_key="prism_member_view" description="Adds a link to prism profile on a players profile" execution_order="10" enabled="1" action="str_replace">
+      <find><![CDATA[<xen:if is="{$canCleanSpam}"><a href="{xen:link spam-cleaner, $user, 'noredirect=1'}" class="deleteSpam OverlayTrigger">{xen:phrase spam_cleaner}</a></xen:if>]]></find>
+      <replace><![CDATA[$0
+<xen:if is="{$visitor.permissions.prismPerms.canAccessPrism} && {$xenOptions.prismOn}">
+<a href="{$xenOptions.prismURL}/player.php?id={$user.customFields.CoreID}" target="_blank" class="deleteSpam">{xen:phrase view_player_in_prism}</a>
+</xen:if>]]></replace>
+    </modification>
+  </public_template_modifications>
+  <bb_code_media_sites/>
+</addon>

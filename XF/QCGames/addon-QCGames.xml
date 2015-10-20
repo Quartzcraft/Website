@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon addon_id="QCGames" title="QC Games" version_string="20150403a" version_id="3" url="http://quartzcraft.co.uk" install_callback_class="" install_callback_method="" uninstall_callback_class="" uninstall_callback_method="">
+  <admin_navigation/>
+  <admin_permissions/>
+  <admin_style_properties/>
+  <admin_templates/>
+  <admin_template_modifications/>
+  <code_events/>
+  <code_event_listeners>
+    <listener event_id="navigation_tabs" execute_order="1" callback_class="QCGames_Listener_Listener" callback_method="navigationTabs" active="1" hint="" description="Adds the Games tab to the navbar"/>
+  </code_event_listeners>
+  <cron/>
+  <email_templates/>
+  <email_template_modifications/>
+  <optiongroups>
+    <group group_id="games" display_order="2" debug_only="0"/>
+    <option option_id="displayGames" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>0</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="games" display_order="0"/>
+    </option>
+    <option option_id="displayGamesPage" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>1</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="games" display_order="1"/>
+    </option>
+    <option option_id="displayGamesTab" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>0</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="games" display_order="10"/>
+    </option>
+    <option option_id="displayHeist" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>0</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="games" display_order="200"/>
+    </option>
+    <option option_id="displayHeistForumLink" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>0</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="games" display_order="205"/>
+    </option>
+    <option option_id="displayHeistGuide" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>0</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="games" display_order="202"/>
+    </option>
+    <option option_id="displayHeistLeaderboard" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>0</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="games" display_order="201"/>
+    </option>
+    <option option_id="displayHeistTab" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>0</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="games" display_order="12"/>
+    </option>
+    <option option_id="displayKingdoms" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>0</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="games" display_order="100"/>
+    </option>
+    <option option_id="displayKingdomsForumsLink" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>0</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="games" display_order="105"/>
+    </option>
+    <option option_id="displayKingdomsGuide" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>0</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="games" display_order="102"/>
+    </option>
+    <option option_id="displayKingdomsLeaderboard" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>0</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="games" display_order="101"/>
+    </option>
+    <option option_id="displayKingdomsTab" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>0</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="games" display_order="11"/>
+    </option>
+    <option option_id="displayLabDefence" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>0</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="games" display_order="300"/>
+    </option>
+    <option option_id="displayLabDefenceForumLink" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>0</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="games" display_order="305"/>
+    </option>
+    <option option_id="displayLabDefenceGuide" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>0</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="games" display_order="302"/>
+    </option>
+    <option option_id="displayLabDefenceLeaderboard" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>0</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="games" display_order="301"/>
+    </option>
+    <option option_id="enableHeistGuidePage" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>0</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="games" display_order="204"/>
+    </option>
+    <option option_id="enableKingdomsGuidePage" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>0</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="games" display_order="104"/>
+    </option>
+    <option option_id="enableLabDefenceGuidePage" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>0</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="games" display_order="304"/>
+    </option>
+    <option option_id="heistForumLink" edit_format="textbox" data_type="string" can_backup="1">
+      <default_value></default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="games" display_order="206"/>
+    </option>
+    <option option_id="heistGuidePostId" edit_format="spinbox" data_type="integer" can_backup="1">
+      <default_value>0</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="games" display_order="203"/>
+    </option>
+    <option option_id="kingdomGuidePostId" edit_format="spinbox" data_type="integer" can_backup="1">
+      <default_value>1</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="games" display_order="103"/>
+    </option>
+    <option option_id="kingdomsForumLink" edit_format="textbox" data_type="string" can_backup="1">
+      <default_value></default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="games" display_order="106"/>
+    </option>
+    <option option_id="labDefenceForumLink" edit_format="textbox" data_type="string" can_backup="1">
+      <default_value></default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="games" display_order="306"/>
+    </option>
+    <option option_id="labDefenceGuidePostId" edit_format="spinbox" data_type="integer" can_backup="1">
+      <default_value>0</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="games" display_order="303"/>
+    </option>
+  </optiongroups>
+  <permissions>
+    <permission_groups>
+      <permission_group permission_group_id="games"/>
+    </permission_groups>
+    <permissions>
+      <permission permission_group_id="games" permission_id="heist" permission_type="flag" depend_permission_id="view" default_value="unset" interface_group_id="games" display_order="20"/>
+      <permission permission_group_id="games" permission_id="kingdoms" permission_type="flag" depend_permission_id="view" default_value="unset" interface_group_id="games" display_order="10"/>
+      <permission permission_group_id="games" permission_id="labdefence" permission_type="flag" depend_permission_id="view" default_value="unset" interface_group_id="games" display_order="30"/>
+      <permission permission_group_id="games" permission_id="view" permission_type="flag" default_value="unset" interface_group_id="games" display_order="1"/>
+    </permissions>
+    <interface_groups>
+      <interface_group interface_group_id="games" display_order="550"/>
+    </interface_groups>
+  </permissions>
+  <phrases>
+    <phrase title="games" version_id="1" version_string="1.0.0"><![CDATA[Gametypes]]></phrase>
+    <phrase title="games_description" version_id="1" version_string="1.0.0"><![CDATA[You can find all of the amazing gametypes offered on QuartzCraft right here!]]></phrase>
+    <phrase title="guide" version_id="1" version_string="1.0.0"><![CDATA[Guide]]></phrase>
+    <phrase title="heist_description" version_id="2" version_string="20141222a"><![CDATA[A short description of The Heist]]></phrase>
+    <phrase title="how_to_play_like_a_pro" version_id="1" version_string="1.0.0"><![CDATA[How to play like a pro!]]></phrase>
+    <phrase title="kingdoms" version_id="1" version_string="1.0.0"><![CDATA[Kingdoms]]></phrase>
+    <phrase title="kingdoms_description" version_id="1" version_string="1.0.0"><![CDATA[This is the kingdoms description]]></phrase>
+    <phrase title="labdefence_description" version_id="2" version_string="20141222a"><![CDATA[This is Lab Defence]]></phrase>
+    <phrase title="lab_defence" version_id="2" version_string="20141222a"><![CDATA[Lab Defence]]></phrase>
+    <phrase title="leaderboards" version_id="1" version_string="1.0.0"><![CDATA[Leaderboards]]></phrase>
+    <phrase title="option_displayGames" version_id="1" version_string="1.0.0"><![CDATA[Display Games]]></phrase>
+    <phrase title="option_displayGamesPage" version_id="1" version_string="1.0.0"><![CDATA[Display Games Page]]></phrase>
+    <phrase title="option_displayGamesPage_explain" version_id="1" version_string="1.0.0"><![CDATA[Toggle whether the games page itself is accessible or just the navigation tab.]]></phrase>
+    <phrase title="option_displayGamesTab" version_id="1" version_string="1.0.0"><![CDATA[Display Games Tab]]></phrase>
+    <phrase title="option_displayGamesTab_explain" version_id="1" version_string="1.0.0"><![CDATA[Display the Games tab in the navbar.]]></phrase>
+    <phrase title="option_displayGames_explain" version_id="1" version_string="1.0.0"><![CDATA[Toggle whether the gametypes section of the website is enabled or not.]]></phrase>
+    <phrase title="option_displayHeist" version_id="1" version_string="1.0.0"><![CDATA[Display The Heist]]></phrase>
+    <phrase title="option_displayHeistForumLink" version_id="1" version_string="1.0.0"><![CDATA[Display The Heist Forum Link]]></phrase>
+    <phrase title="option_displayHeistForumLink_explain" version_id="2" version_string="20141222a"><![CDATA[Toggle whether a link to The Heist forums is displayed]]></phrase>
+    <phrase title="option_displayHeistGuide" version_id="1" version_string="1.0.0"><![CDATA[Display The Heist Guide]]></phrase>
+    <phrase title="option_displayHeistGuide_explain" version_id="2" version_string="20141222a"><![CDATA[Toggle whether the heist guide is accessible]]></phrase>
+    <phrase title="option_displayHeistLeaderboard" version_id="1" version_string="1.0.0"><![CDATA[Display The Heist Leaderboard]]></phrase>
+    <phrase title="option_displayHeistLeaderboard_explain" version_id="2" version_string="20141222a"><![CDATA[Toggle whether the heist leaderboards are accessible]]></phrase>
+    <phrase title="option_displayHeistTab" version_id="1" version_string="1.0.0"><![CDATA[Display The Heist Tab]]></phrase>
+    <phrase title="option_displayHeistTab_explain" version_id="2" version_string="20141222a"><![CDATA[Display a tab for the heist in the navbar.]]></phrase>
+    <phrase title="option_displayHeist_explain" version_id="2" version_string="20141222a"><![CDATA[Toggle whether "The Heist" section of the website is accessible or not. Also toggles whether it is displayed in the games page submenu.]]></phrase>
+    <phrase title="option_displayKingdoms" version_id="1" version_string="1.0.0"><![CDATA[Display Kingdoms]]></phrase>
+    <phrase title="option_displayKingdomsForumsLink" version_id="1" version_string="1.0.0"><![CDATA[Display Forum Link]]></phrase>
+    <phrase title="option_displayKingdomsForumsLink_explain" version_id="2" version_string="20141222a"><![CDATA[Toggle whether a link to the Kingdoms forums is displayed]]></phrase>
+    <phrase title="option_displayKingdomsGuide" version_id="1" version_string="1.0.0"><![CDATA[Display Kingdoms Guide]]></phrase>
+    <phrase title="option_displayKingdomsGuide_explain" version_id="2" version_string="20141222a"><![CDATA[Toggle whether the kingdoms guide is accessible]]></phrase>
+    <phrase title="option_displayKingdomsLeaderboard" version_id="1" version_string="1.0.0"><![CDATA[Display Kingdoms Leaderboard]]></phrase>
+    <phrase title="option_displayKingdomsLeaderboard_explain" version_id="2" version_string="20141222a"><![CDATA[Toggle whether the kingdoms leaderboards are accessible]]></phrase>
+    <phrase title="option_displayKingdomsTab" version_id="1" version_string="1.0.0"><![CDATA[Display Kingdoms Tab]]></phrase>
+    <phrase title="option_displayKingdomsTab_explain" version_id="2" version_string="20141222a"><![CDATA[Display a tab for Kingdoms in the navbar]]></phrase>
+    <phrase title="option_displayKingdoms_explain" version_id="2" version_string="20141222a"><![CDATA[Toggle whether the "Kingdoms" section of the website is accessible or not. Also toggles whether it is displayed in the games page submenu.]]></phrase>
+    <phrase title="option_displayLabDefence" version_id="2" version_string="20141222a"><![CDATA[Display Lab Defence]]></phrase>
+    <phrase title="option_displayLabDefenceForumLink" version_id="2" version_string="20141222a"><![CDATA[Display Lab Defence Forum Link]]></phrase>
+    <phrase title="option_displayLabDefenceForumLink_explain" version_id="2" version_string="20141222a"><![CDATA[Toggle whether a link to the Lab Defence forums is displayed]]></phrase>
+    <phrase title="option_displayLabDefenceGuide" version_id="2" version_string="20141222a"><![CDATA[Display Lab Defence Guide]]></phrase>
+    <phrase title="option_displayLabDefenceGuide_explain" version_id="2" version_string="20141222a"><![CDATA[Toggle whether the heist guide is accessible]]></phrase>
+    <phrase title="option_displayLabDefenceLeaderboard" version_id="2" version_string="20141222a"><![CDATA[Display Lab Defence Leaderboard]]></phrase>
+    <phrase title="option_displayLabDefenceLeaderboard_explain" version_id="2" version_string="20141222a"><![CDATA[Toggle whether the Lab Defence leaderboard is accessible]]></phrase>
+    <phrase title="option_displayLabDefence_explain" version_id="2" version_string="20141222a"><![CDATA[Toggle whether the "Lab Defence" section of the website is accessible or not. Also toggles whether it is displayed in the games page submenu.]]></phrase>
+    <phrase title="option_enableHeistGuidePage" version_id="1" version_string="1.0.0"><![CDATA[Enable The Heist Guide Page]]></phrase>
+    <phrase title="option_enableHeistGuidePage_explain" version_id="2" version_string="20141222a"><![CDATA[Toggle whether The Heist guide is displayed on a separate page]]></phrase>
+    <phrase title="option_enableKingdomsGuidePage" version_id="1" version_string="1.0.0"><![CDATA[Display Kingdoms Guide Page]]></phrase>
+    <phrase title="option_enableKingdomsGuidePage_explain" version_id="2" version_string="20141222a"><![CDATA[Toggle whether the Kingdoms guide is displayed on a separate page]]></phrase>
+    <phrase title="option_enableLabDefenceGuidePage" version_id="2" version_string="20141222a"><![CDATA[Enable Guide Page]]></phrase>
+    <phrase title="option_enableLabDefenceGuidePage_explain" version_id="2" version_string="20141222a"><![CDATA[Toggle whether the Lab Defence guide is displayed on a separate page]]></phrase>
+    <phrase title="option_group_games" version_id="1" version_string="1.0.0"><![CDATA[[QC] Games Options]]></phrase>
+    <phrase title="option_group_games_description" version_id="1" version_string="1.0.0"><![CDATA[Options for the games section of the website.]]></phrase>
+    <phrase title="option_heistForumLink" version_id="1" version_string="1.0.0"><![CDATA[The Heist Forum URL]]></phrase>
+    <phrase title="option_heistForumLink_explain" version_id="2" version_string="20141222a"><![CDATA[The URL of the forums/category for the heist]]></phrase>
+    <phrase title="option_heistGuidePostId" version_id="1" version_string="1.0.0"><![CDATA[Guide Post ID]]></phrase>
+    <phrase title="option_heistGuidePostId_explain" version_id="2" version_string="20141222a"><![CDATA[The ID of the post to be used as the guide for The Heist.]]></phrase>
+    <phrase title="option_kingdomGuidePostId" version_id="1" version_string="1.0.0"><![CDATA[Guide Post ID]]></phrase>
+    <phrase title="option_kingdomGuidePostId_explain" version_id="1" version_string="1.0.0"><![CDATA[The ID of the post to be used as the guide for Kingdoms.]]></phrase>
+    <phrase title="option_kingdomsForumLink" version_id="1" version_string="1.0.0"><![CDATA[Kingdoms Forum URL]]></phrase>
+    <phrase title="option_kingdomsForumLink_explain" version_id="2" version_string="20141222a"><![CDATA[The URL of the forums/category for kingdoms]]></phrase>
+    <phrase title="option_labDefenceForumLink" version_id="2" version_string="20141222a"><![CDATA[Lab Defence Forum URL]]></phrase>
+    <phrase title="option_labDefenceForumLink_explain" version_id="2" version_string="20141222a"><![CDATA[The URL of the forums/category for Lab Defence]]></phrase>
+    <phrase title="option_labDefenceGuidePostId" version_id="2" version_string="20141222a"><![CDATA[Guide Post ID]]></phrase>
+    <phrase title="option_labDefenceGuidePostId_explain" version_id="2" version_string="20141222a"><![CDATA[The ID of the post to be used as the guide for Lab Defence.]]></phrase>
+    <phrase title="permission_games_heist" version_id="1" version_string="1.0.0"><![CDATA[View The Heist]]></phrase>
+    <phrase title="permission_games_kingdoms" version_id="1" version_string="1.0.0"><![CDATA[View Kingdoms]]></phrase>
+    <phrase title="permission_games_labdefence" version_id="2" version_string="20141222a"><![CDATA[View Lab Defence]]></phrase>
+    <phrase title="permission_games_view" version_id="1" version_string="1.0.0"><![CDATA[View Games]]></phrase>
+    <phrase title="permission_group_games" version_id="1" version_string="1.0.0"><![CDATA[QC Games Permissions]]></phrase>
+    <phrase title="permission_interface_games" version_id="1" version_string="1.0.0"><![CDATA[QC Games Permissions]]></phrase>
+    <phrase title="play_now" version_id="1" version_string="1.0.0"><![CDATA[Play Now]]></phrase>
+    <phrase title="the_heist" version_id="1" version_string="1.0.0"><![CDATA[The Heist]]></phrase>
+    <phrase title="viewing_games" version_id="1" version_string="1.0.0"><![CDATA[Viewing gametypes]]></phrase>
+    <phrase title="viewing_game_heist" version_id="2" version_string="20141222a"><![CDATA[Viewing game The Heist]]></phrase>
+    <phrase title="viewing_game_kingdoms" version_id="2" version_string="20141222a"><![CDATA[Viewing game Kingdoms]]></phrase>
+    <phrase title="viewing_game_labdefence" version_id="2" version_string="20141222a"><![CDATA[Viewing game Lab Defence ]]></phrase>
+  </phrases>
+  <route_prefixes>
+    <route_type type="public">
+      <prefix original_prefix="games" class="QCGames_Route_Prefix_Games" build_link="all"/>
+      <prefix original_prefix="kingdoms" class="QCGames_Route_Prefix_Kingdoms" build_link="all"/>
+      <prefix original_prefix="lab-defence" class="QCGames_Route_Prefix_LabDefence" build_link="all"/>
+      <prefix original_prefix="the-heist" class="QCGames_Route_Prefix_Heist" build_link="all"/>
+    </route_type>
+  </route_prefixes>
+  <style_properties/>
+  <templates>
+    <template title="game.css" version_id="1" version_string="1.0.0"><![CDATA[a.block.gameAction {
+    margin: 0 0 20px 0;
+    padding: 15px 20px 15px 20px;
+    width: 280px;
+    font-size: 19px;
+    background: #f1bb1a;
+    line-height: 20px;
+    color: #FFF;
+    float: left;
+    text-align: left;
+    text-shadow: 0 1px 0 #e78807;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+a.block.gameAction:hover {
+    opacity: 0.8;
+}
+
+a.block.gameAction i {
+    float: right
+}
+
+div.serverInfo {
+    width: 320px;
+    height: 48px;
+    margin: -15px 0 20px 0;
+    background: #0099d7;
+    color: #c9efff;
+    float: left;
+    -moz-border-bottom-left-radius: 4px;
+    -moz-border-bottom-right-radius: 4px;
+    -webkit-border-bottom-left-radius: 4px;
+    -webkit-border-bottom-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+div.serverInfo p {
+    margin: 10px 0 0 20px;
+    font-size: 19px;
+    float: left;
+}
+
+div.serverInfo p i {
+    float: left;
+    margin: 4px 10px 0 0;
+}
+
+img.gameBanner {
+	padding-bottom: 10px;
+	max-width: 100%; 
+	display:block; 
+	height: auto;
+}]]></template>
+    <template title="games.css" version_id="1" version_string="1.0.0"><![CDATA[div.left div.games ul {
+    float: left;
+    margin: 0 0 20px 0
+}
+
+div.left div.games ul li {
+    display: inline;
+    float: left;
+    width: 320px;
+    height: 72px;
+    background: #faf9f8;
+    margin: 6px 0 0 0;
+}
+
+div.left div.games ul li img {
+    width: 72px;
+    height: 72px;
+    float: left;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+div.left div.games ul li a {
+    margin: 17px 0 0 18px;
+    font-size: 20px;
+    width: 200px;
+    float: left;
+}
+
+div.left div.games ul li p {
+    font-size: 14px;
+    margin: 2px 0 0 18px;
+    letter-spacing: -1px;
+    color: #6d6d6d;
+    width: 200px;
+    float: left;
+}]]></template>
+    <template title="games_tab_links" version_id="2" version_string="20141222a"><![CDATA[<ul class="secondaryContent blockLinksList">
+	<xen:if is="{$xenOptions.displayKingdoms}"><li><a href="{xen:link full:kingdoms}">{xen:phrase kingdoms}</a></li></xen:if>
+	<xen:if is="{$xenOptions.displayHeist}"><li><a href="{xen:link full:the-heist}">{xen:phrase the_heist}</a></li></xen:if>
+	<xen:if is="{$xenOptions.displayLabDefence}"><li><a href="{xen:link full:lab-defence}">{xen:phrase lab_defence}</a></li></xen:if>
+</ul>]]></template>
+    <template title="game_index" version_id="2" version_string="20141222a"><![CDATA[<xen:require css="game.css" />
+<xen:require css="games.css" />
+<xen:title>{xen:phrase games}</xen:title>
+<xen:description>{xen:phrase games_description}</xen:description>
+
+<div class="left">
+	<div class="games">
+		<ul>
+			<xen:if is="{$xenOptions.displayKingdoms}">
+				<li>
+					<img src="https://minotar.net/avatar/nfell2009/72" alt="nfell2009" />
+					<a href="{xen:link full:kingdoms}">{xen:phrase kingdoms}</a>
+					<p>{xen:phrase kingdoms_description}</p>
+				</li>
+			</xen:if>
+			<xen:if is="{$xenOptions.displayHeist}">
+				<li>
+					<img src="https://minotar.net/avatar/nfell2009/72" alt="nfell2009" />
+					<a href="{xen:link full:the-heist}">{xen:phrase the_heist}</a>
+					<p>{xen:phrase heist_description}</p>
+				</li>
+			</xen:if>
+			
+			<xen:if is="{$xenOptions.displayLabDefence}">
+				<li>
+					<img src="https://minotar.net/avatar/nfell2009/72" alt="nfell2009" />
+					<a href="{xen:link full:lab-defence}">{xen:phrase lab_defence}</a>
+					<p>{xen:phrase labdefence_description}</p>
+				</li>
+			</xen:if>
+		</ul>
+	</div>
+</div>
+<div class="right">
+	
+</div>]]></template>
+    <template title="heist_guide" version_id="1" version_string="1.0.0"><![CDATA[<xen:require css="game.css" />
+<xen:title>{xen:phrase the_heist} - {xen:phrase guide}</xen:title>
+
+<xen:navigation>
+	<xen:breadcrumb href="{xen:link full:the-heist}">{xen:phrase the_heist}</xen:breadcrumb>
+	<xen:breadcrumb href="{xen:link the-heist/guide}">{xen:phrase guide}</xen:breadcrumb>
+</xen:navigation>
+
+<xen:topctrl>
+	<a href="{xen:link full:the-heist}" class="callToAction"><span>{xen:phrase the_heist}</span></a>
+</xen:topctrl>
+
+{xen:raw $post.messageParsed}]]></template>
+    <template title="heist_index" version_id="1" version_string="1.0.0"><![CDATA[<xen:require css="game.css" />
+<xen:title>{xen:phrase the_heist}</xen:title>
+<xen:description>{xen:phrase heist_description}</xen:description>
+
+<xen:h1></xen:h1>
+
+<xen:navigation>
+	<xen:breadcrumb href="{xen:link full:the-heist}">{xen:phrase the_heist}</xen:breadcrumb>
+</xen:navigation>
+
+<xen:comment><img class="gameBanner" src="http://placehold.it/1070x170&text=The%20Heist%20Banner%20(1070x170)" alt="The Heist" /></xen:comment>
+<img class="gameBanner" src="http://quartzcraft.co.uk/archives/th_banner.png" alt="The Heist" />
+<div class="left wide">
+	<p>The Heist is a gamemode based on PayDay: The Heist and PayDay: 2. The game involves you joining with other players, forming crews and stealing from a multitude of places such as coffee shops, jewellery shops, banks and even the homes of the rich. </p>
+	<br>
+	<p>Now this won't be easy as each heist has its own level of security. The bigger value jobs will be harder to do, with CCTV and armed guards increased as you attempt the harder jobs. </p>
+	<br>
+	<p>You may be wondering if The Heist offers anything else other than just plain robbery. Well my friend, in The Heist you can do multiple missions such as prison escapes, cop case and fire fights with cops or other players. </p>
+	<br>
+	<p>Jobs can be collected in Hawk Town by visiting local establishments. Hawk Town is renowned for being a hideout of the criminally interested. As you're going to be new to the town the jobs on offer will be limited. But once you've gained your reputation the jobs will be rolling in. </p>
+	<br>
+	<p>To add a little spice to The Heist, we have added a Skill system and Upgrade shops, where you can earn XP from completing quests and jobs. The XP can be spent on making you move faster or quieter, being able to reload faster and a whole range of other advantages. The upgrade shop allows you to buy new weapons such as guns and knives, but also lets you add attachments to your weapons. </p>
+	<br>
+	<p>So what are you waiting for? Join play.QuartzCraft.co.uk and visit Hawk Town. We're waiting. </p>
+	<xen:if is="{$xenOptions.displayHeistGuide} && !{$xenOptions.enableHeistGuidePage}">
+		<h3 class="sectionHead">{xen:phrase guide} - {xen:phrase how_to_play_like_a_pro}</h3>
+		{xen:raw $post.messageParsed}
+	</xen:if>
+</div>
+<div class="right narrow">
+	<xen:if is="{$xenOptions.displayHeistGuide} && {$xenOptions.enableHeistGuidePage}">
+		<a href="{xen:link 'the-heist/guide'}" class="block gameAction"><span>{xen:phrase guide}<i class="fa fa-book"></i></span></a>
+	<xen:elseif is="{$xenOptions.displayHeistGuide} && !{$xenOptions.enableHeistGuidePage}" />
+		<a href="{xen:link full:the-heist}#guide" class="block gameAction"><span>{xen:phrase guide}<i class="fa fa-book"></i></span></a>
+	</xen:if>
+	<xen:if is="{$xenOptions.displayHeistLeaderboard}">
+		<a href="{xen:link 'the-heist/leaderboards'}" class="block gameAction"><span>{xen:phrase leaderboards}<i class="fa fa-trophy"></i></span></a>
+	</xen:if>
+	<xen:if is="{$xenOptions.displayHeistForumLink}">
+		<a href="{$xenOptions.heistForumLink}" class="block gameAction"><span>{xen:phrase view} {xen:phrase forums}<i class="fa fa-folder"></i></span></a>
+	</xen:if>
+	<h3 class="sectionHead">{xen:phrase play_now}</h3>
+	<div class="serverInfo">
+		<p><i class="fa fa-globe"></i>play.QuartzCraft.co.uk</p>
+	</div>
+</div>]]></template>
+    <template title="heist_leaderboard" version_id="2" version_string="20141222a"><![CDATA[<xen:require css="game.css" />
+<xen:title>{xen:phrase the_heist} - {xen:phrase leaderboards}</xen:title>
+
+<xen:navigation>
+	<xen:breadcrumb href="{xen:link full:the-heist}">{xen:phrase the_heist}</xen:breadcrumb>
+	<xen:breadcrumb href="{xen:link the-heist/leaderboards}">{xen:phrase leaderboards}</xen:breadcrumb>
+</xen:navigation>
+
+<xen:topctrl>
+	<a href="{xen:link full:the-heist}" class="callToAction"><span>{xen:phrase the_heist}</span></a>
+</xen:topctrl>]]></template>
+    <template title="kingdom_guide" version_id="2" version_string="20141222a"><![CDATA[<xen:require css="game.css" />
+<xen:title>{xen:phrase kingdoms} - {xen:phrase guide}</xen:title>
+
+<xen:navigation>
+	<xen:breadcrumb href="{xen:link full:kingdoms}">{xen:phrase kingdoms}</xen:breadcrumb>
+	<xen:breadcrumb href="{xen:link kingdoms/guide}">{xen:phrase guide}</xen:breadcrumb>
+</xen:navigation>
+
+<xen:topctrl>
+	<a href="{xen:link full:kingdoms}" class="callToAction"><span>{xen:phrase kingdoms}</span></a>
+</xen:topctrl>
+
+{xen:raw $post.messageParsed}]]></template>
+    <template title="kingdom_index" version_id="1" version_string="1.0.0"><![CDATA[<xen:require css="game.css" />
+<xen:title>{xen:phrase kingdoms}</xen:title>
+<xen:description>{xen:phrase kingdoms_description}</xen:description>
+
+<xen:navigation>
+	<xen:breadcrumb href="{xen:link full:kingdoms}">{xen:phrase kingdoms}</xen:breadcrumb>
+</xen:navigation>
+
+<xen:h1></xen:h1>
+
+<xen:comment><img class="gameBanner" src="http://placehold.it/1070x170&text=Kingdoms%20Banner%20(1070x170)" alt="Kingdoms" /></xen:comment>
+<img class="gameBanner" src="http://quartzcraft.co.uk/archives/kingdoms_banner.png" alt="Kingdoms" />
+<div class="left wide">
+	<p>Kingdoms</p>
+	<xen:if is="{$xenOptions.displayKingdomsGuide} && !{$xenOptions.enableKingdomsGuidePage}">
+		<h3 class="sectionHead">{xen:phrase guide} - {xen:phrase how_to_play_like_a_pro}</h3>
+		{xen:raw $post.messageParsed}
+	</xen:if>
+</div>
+<div class="right narrow">
+	<xen:if is="{$xenOptions.displayKingdomsGuide} && {$xenOptions.enableKingdomsGuidePage}">
+		<a href="{xen:link 'kingdoms/guide'}" class="block gameAction"><span>{xen:phrase guide}<i class="fa fa-book"></i></span></a>
+	<xen:elseif is="{$xenOptions.displayKingdomsGuide} && !{$xenOptions.enableKingdomsGuidePage}" />
+		<a href="{xen:link full:kingdoms}#guide" class="block gameAction"><span>{xen:phrase guide}<i class="fa fa-book"></i></span></a>
+	</xen:if>
+	<xen:if is="{$xenOptions.displayKingdomsLeaderboard}">
+		<a href="{xen:link 'kingdoms/leaderboards'}" class="block gameAction"><span>{xen:phrase leaderboards}<i class="fa fa-trophy"></i></span></a>
+	</xen:if>
+	<xen:if is="{$xenOptions.displayKingdomsForumsLink}">
+		<a href="{$xenOptions.kingdomsForumLink}" class="block gameAction"><span>{xen:phrase view} {xen:phrase forums}<i class="fa fa-folder"></i></span></a>
+	</xen:if>
+	<h3 class="sectionHead">{xen:phrase play_now}</h3>
+	<div class="serverInfo">
+		<p><i class="fa fa-globe"></i>play.QuartzCraft.co.uk</p>
+	</div>
+</div>]]></template>
+    <template title="kingdom_leaderboard" version_id="2" version_string="20141222a"><![CDATA[<xen:require css="game.css" />
+<xen:title>{xen:phrase kingdoms} - {xen:phrase leaderboards}</xen:title>
+
+<xen:navigation>
+	<xen:breadcrumb href="{xen:link full:kingdoms}">{xen:phrase kingdoms}</xen:breadcrumb>
+	<xen:breadcrumb href="{xen:link kingdoms/leaderboards}">{xen:phrase leaderboards}</xen:breadcrumb>
+</xen:navigation>
+
+<xen:topctrl>
+	<a href="{xen:link full:kingdoms}" class="callToAction"><span>{xen:phrase kingdoms}</span></a>
+</xen:topctrl>]]></template>
+    <template title="labdefence_guide" version_id="2" version_string="20141222a"><![CDATA[<xen:require css="game.css" />
+<xen:title>{xen:phrase lab_defence} - {xen:phrase guide}</xen:title>
+
+<xen:navigation>
+	<xen:breadcrumb href="{xen:link full:lab-defence}">{xen:phrase lab_defence}</xen:breadcrumb>
+	<xen:breadcrumb href="{xen:link lab-defence/guide}">{xen:phrase guide}</xen:breadcrumb>
+</xen:navigation>
+
+<xen:topctrl>
+	<a href="{xen:link full:lab-defence}" class="callToAction"><span>{xen:phrase lab_defence}</span></a>
+</xen:topctrl>
+
+{xen:raw $post.messageParsed}]]></template>
+    <template title="labdefence_index" version_id="2" version_string="20141222a"><![CDATA[<xen:require css="game.css" />
+<xen:title>{xen:phrase lab_defence}</xen:title>
+<xen:description>{xen:phrase labdefence_description}</xen:description>
+
+<xen:navigation>
+	<xen:breadcrumb href="{xen:link lab-defence}">{xen:phrase lab_defence}</xen:breadcrumb>
+</xen:navigation>
+
+<xen:h1></xen:h1>
+
+<xen:comment><img class="gameBanner" src="http://placehold.it/1070x170&text=Kingdoms%20Banner%20(1070x170)" alt="Lab Defence" /></xen:comment>
+<img class="gameBanner" src="http://quartzcraft.co.uk/archives/kingdoms_banner.png" alt="Lab Defence" />
+<div class="left wide">
+	<p>Page Content</p>
+	<xen:if is="{$xenOptions.displayLabDefenceGuide} && !{$xenOptions.enableLabDefenceGuidePage}">
+		<h3 class="sectionHead">{xen:phrase guide} - {xen:phrase how_to_play_like_a_pro}</h3>
+		{xen:raw $post.messageParsed}
+	</xen:if>
+</div>
+<div class="right narrow">
+	<xen:if is="{$xenOptions.displayLabDefenceGuide} && {$xenOptions.enableLabDefenceGuidePage}">
+		<a href="{xen:link 'lab-defence/guide'}" class="block gameAction"><span>{xen:phrase guide}<i class="fa fa-book"></i></span></a>
+	<xen:elseif is="{$xenOptions.displayLabDefenceGuide} && !{$xenOptions.enableLabDefenceGuidePage}" />
+		<a href="{xen:link full:lab-defence}#guide" class="block gameAction"><span>{xen:phrase guide}<i class="fa fa-book"></i></span></a>
+	</xen:if>
+	<xen:if is="{$xenOptions.displayLabDefenceLeaderboard}">
+		<a href="{xen:link 'lab-defence/leaderboards'}" class="block gameAction"><span>{xen:phrase leaderboards}<i class="fa fa-trophy"></i></span></a>
+	</xen:if>
+	<xen:if is="{$xenOptions.displayLabDefenceForumLink}">
+		<a href="{$xenOptions.labDefenceForumLink}" class="block gameAction"><span>{xen:phrase view} {xen:phrase forums}<i class="fa fa-folder"></i></span></a>
+	</xen:if>
+	<h3 class="sectionHead">{xen:phrase play_now}</h3>
+	<div class="serverInfo">
+		<p><i class="fa fa-globe"></i>play.QuartzCraft.co.uk</p>
+	</div>
+</div>]]></template>
+    <template title="labdefence_leaderboard" version_id="2" version_string="20141222a"><![CDATA[<xen:require css="game.css" />
+<xen:title>{xen:phrase lab_defence} - {xen:phrase leaderboards}</xen:title>
+
+<xen:navigation>
+	<xen:breadcrumb href="{xen:link full:lab-defence}">{xen:phrase lab_defence}</xen:breadcrumb>
+	<xen:breadcrumb href="{xen:link lab-defence/leaderboards}">{xen:phrase leaderboards}</xen:breadcrumb>
+</xen:navigation>
+
+<xen:topctrl>
+	<a href="{xen:link full:lab-defence}" class="callToAction"><span>{xen:phrase lab_defence}</span></a>
+</xen:topctrl>]]></template>
+  </templates>
+  <public_template_modifications/>
+  <bb_code_media_sites/>
+</addon>

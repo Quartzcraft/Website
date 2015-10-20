@@ -1,0 +1,625 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon addon_id="QCPlayers" title="QC Player Profiles" version_string="1.0.0" version_id="1" url="http://quartzcraft.co.uk" install_callback_class="" install_callback_method="" uninstall_callback_class="" uninstall_callback_method="">
+  <admin_navigation/>
+  <admin_permissions/>
+  <admin_style_properties/>
+  <admin_templates/>
+  <admin_template_modifications/>
+  <code_events/>
+  <code_event_listeners>
+    <listener event_id="navigation_tabs" execute_order="3" callback_class="QCPlayers_Listener_Listener" callback_method="navigationTabs" active="1" hint="" description="Adds the Players tab to the navigation bar"/>
+  </code_event_listeners>
+  <cron/>
+  <email_templates/>
+  <email_template_modifications/>
+  <optiongroups>
+    <group group_id="players" display_order="3" debug_only="0"/>
+    <option option_id="displayApplyStaff" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>0</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="players" display_order="201"/>
+    </option>
+    <option option_id="displayPlayers" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>0</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="players" display_order="1"/>
+    </option>
+    <option option_id="displayPlayersTab" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>0</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="players" display_order="2"/>
+    </option>
+    <option option_id="displayStaffList" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>0</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="players" display_order="200"/>
+    </option>
+    <option option_id="enableSearchPlayers" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>0</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="players" display_order="100"/>
+    </option>
+  </optiongroups>
+  <permissions>
+    <permission_groups>
+      <permission_group permission_group_id="players"/>
+    </permission_groups>
+    <permissions>
+      <permission permission_group_id="players" permission_id="view" permission_type="flag" default_value="unset" interface_group_id="players" display_order="1"/>
+    </permissions>
+    <interface_groups>
+      <interface_group interface_group_id="players" display_order="560"/>
+    </interface_groups>
+  </permissions>
+  <phrases>
+    <phrase title="apply_for_staff" version_id="1" version_string="1.0.0"><![CDATA[Apply for Staff]]></phrase>
+    <phrase title="option_displayApplyStaff" version_id="1" version_string="1.0.0"><![CDATA[Display Apply for Staff]]></phrase>
+    <phrase title="option_displayApplyStaff_explain" version_id="1" version_string="1.0.0"><![CDATA[Toggle whether the apply for staff bit is enabled in the staff members list.]]></phrase>
+    <phrase title="option_displayPlayers" version_id="1" version_string="1.0.0"><![CDATA[Display Player Profiles]]></phrase>
+    <phrase title="option_displayPlayersTab" version_id="1" version_string="1.0.0"><![CDATA[Display Players Tab]]></phrase>
+    <phrase title="option_displayPlayersTab_explain" version_id="1" version_string="1.0.0"><![CDATA[Toggle whether the player profiles tab is visible.]]></phrase>
+    <phrase title="option_displayPlayers_explain" version_id="1" version_string="1.0.0"><![CDATA[Toggle whether the player profiles section of the website is available.]]></phrase>
+    <phrase title="option_displayStaffList" version_id="1" version_string="1.0.0"><![CDATA[Display Staff List]]></phrase>
+    <phrase title="option_displayStaffList_explain" version_id="1" version_string="1.0.0"><![CDATA[Toggle whether the staff list in the players section of the site is accessible or not.]]></phrase>
+    <phrase title="option_enableSearchPlayers" version_id="1" version_string="1.0.0"><![CDATA[Enable Player Search]]></phrase>
+    <phrase title="option_enableSearchPlayers_explain" version_id="1" version_string="1.0.0"><![CDATA[Allow users to search players]]></phrase>
+    <phrase title="option_group_players" version_id="1" version_string="1.0.0"><![CDATA[[QC] Player Profile Options]]></phrase>
+    <phrase title="option_group_players_description" version_id="1" version_string="1.0.0"><![CDATA[Options for the player profiles section of the website.]]></phrase>
+    <phrase title="permission_group_players" version_id="1" version_string="1.0.0"><![CDATA[QC Player Profiles Permissions]]></phrase>
+    <phrase title="permission_interface_players" version_id="1" version_string="1.0.0"><![CDATA[QC Player Profile Permissions]]></phrase>
+    <phrase title="permission_players_view" version_id="1" version_string="1.0.0"><![CDATA[View Players]]></phrase>
+    <phrase title="players" version_id="1" version_string="1.0.0"><![CDATA[Players]]></phrase>
+    <phrase title="please_enter_reason_for_reporting_this_player" version_id="1" version_string="1.0.0"><![CDATA[Please enter a reason for reporting this player.]]></phrase>
+    <phrase title="report_player" version_id="1" version_string="1.0.0"><![CDATA[Report Player]]></phrase>
+    <phrase title="senior_staff" version_id="1" version_string="1.0.0"><![CDATA[Senior Staff]]></phrase>
+    <phrase title="thank_you_for_reporting_this_player" version_id="1" version_string="1.0.0"><![CDATA[Thank you for reporting this player.]]></phrase>
+    <phrase title="type_a_minecraft_name_and_press_enter" version_id="1" version_string="1.0.0"><![CDATA[Type and Minecraft name and press enter]]></phrase>
+    <phrase title="unique_players_and_counting" version_id="1" version_string="1.0.0"><![CDATA[unique players and counting!]]></phrase>
+    <phrase title="viewing_players" version_id="1" version_string="1.0.0"><![CDATA[Viewing players]]></phrase>
+    <phrase title="viewing_player_profile" version_id="1" version_string="1.0.0"><![CDATA[Viewing player profile]]></phrase>
+  </phrases>
+  <route_prefixes>
+    <route_type type="public">
+      <prefix original_prefix="player" class="QCPlayers_Route_Prefix_Player" build_link="all"/>
+      <prefix original_prefix="players" class="QCPlayers_Route_Prefix_Players" build_link="all"/>
+    </route_type>
+  </route_prefixes>
+  <style_properties/>
+  <templates>
+    <template title="players.css" version_id="1" version_string="1.0.0"><![CDATA[div#left.left {
+    padding-top: 0.5px;
+}
+
+div.left div.owners ul {
+    float: left;
+    margin: 0 0 20px 0
+}
+
+div.left div.owners ul li {
+    display: inline;
+    float: left;
+    width: 320px;
+    height: 72px;
+    background: #faf9f8;
+    margin: 6px 0 0 0;
+}
+
+div.left div.owners ul li img {
+    width: 72px;
+    height: 72px;
+    float: left;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+div.left div.owners ul li a {
+    margin: 17px 0 0 18px;
+    font-size: 20px;
+    width: 200px;
+    float: left;
+}
+
+div.left div.owners ul li p {
+    font-size: 14px;
+    margin: 2px 0 0 18px;
+    letter-spacing: -1px;
+    color: #6d6d6d;
+    width: 200px;
+    float: left;
+}
+
+div.left ul.avatars {
+    float: left;
+    margin: 0 0 20px 0
+}
+div.left ul.avatars li {
+    width: 36px;
+    height: 36px;
+    margin: 0 4px 4px 0;
+    float: left;
+}
+
+div.left ul.avatars li.on {
+    opacity: 1
+}
+
+div.left ul.avatars li:nth-child(8n+8) {
+    margin: 0 0 4px 0
+}
+
+div.left ul.avatars li img {
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+div.right ul.users {
+    float: left;
+}
+
+div.right ul.users li {
+    width: 215px;
+    height: 50px;
+    margin: 0 10px 10px 0;
+    background: #faf9f8;
+    float: left;
+}
+
+div.right ul.users li:nth-child(3n+3) {
+    margin: 0 0 10px 0;
+}
+
+div.right ul.users li:nth-child(even) {
+    background: #f5f5f5
+}
+
+div.right ul.users li img {
+    width: 50px;
+    height: 50px;
+    margin: 0 15px 0 0;
+    float: left;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+div.right ul.users li p {
+    margin: 15px 0 0 0;
+    letter-spacing: -1px;
+    float: left;
+}
+
+div.right ul.users li a {
+    width: 215px;
+    height: 50px;
+    float: left;
+}
+
+div.left.head {
+	padding-top: 9px;
+	width: 500px;
+	float: left;
+}
+
+div.player.head {
+	width: 100%;
+	height: 80px;
+}
+
+div#headersearch {
+	padding: 0 0 2px 0;
+    	margin: 10px 0 6px 0;
+	width: 420px;
+	float: right;
+}
+
+div#headersearch form div.playersearch {
+    width: 328px;
+    height: 48px;
+    background: #FFF;
+    float: left;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #f1bb1a;
+}
+
+div#headersearch form div.playersearch input[type=text] {
+    font-size: 14px;
+    border: 0;
+    outline: 0;
+    float: left;
+    width: 310px;
+    margin: 14px 0 0 10px;
+}
+
+div#headersearch form input[type=submit] {
+    font-size: 19px;
+    color: #FFF;
+    letter-spacing: 0px;    
+    cursor: pointer;
+    border: 0;
+    outline: 0;
+    margin: 0 0 0 3px;
+    padding: 0;
+    background: #f1bb1a;
+    width: 85px;
+    height: 52px;
+    float: right;
+    border-radius: 4px;
+}
+
+div#headersearch form input[type=submit]:hover {
+    opacity: 0.9;
+}]]></template>
+    <template title="player_index" version_id="1" version_string="1.0.0"><![CDATA[<xen:require css="players.css" />
+
+<xen:title>{xen:phrase players}</xen:title>
+<xen:h1></xen:h1>
+
+<xen:topctrl>
+	<a href="{xen:link 'kingdoms/guide'}" class="callToAction"><span>{xen:phrase guide}</span></a>
+</xen:topctrl>
+
+<div class="player head">
+	<div class="left head">
+		<h1 class="sectionHead orange" style="border-bottom: none;"><b>QuartzCraft >> </b>{$number} {xen:phrase unique_players_and_counting}</h1>
+	</div>
+		
+	<div id="headersearch">		
+		<form name="ignsearch" action="{xen:link 'players/search'}" method="post">
+			<div class="playersearch">
+				<input name="ign" type="text" placeholder="{xen:phrase type_a_minecraft_name_and_press_enter}...">
+				<input type="hidden" name="cookie_check" value="1" />
+				<input type="hidden" name="redirect" value="{xen:if $redirect, $redirect, $requestPaths.requestUri}" />
+				<input type="hidden" name="_xfToken" value="{$visitor.csrf_token_page}" />
+			</div>
+			<input type="submit" value="{xen:phrase Search}">
+		</form>
+	</div>
+</div>
+
+<div id="left" class="left">
+	<h2 class="sectionHead darkred">{xen:phrase administrators}</h2>
+	<div class="owners">
+		<ul>
+			<li>
+				<img src="https://crafatar.com/avatars/nfell2009?size=64" alt="nfell2009" />
+				<a href="{xen:link 'player/nfell2009'}">nfell2009</a>
+				<p>QuartzCraft Owner</p>
+			</li>
+			<li>
+				<img src="https://crafatar.com/avatars/mba2012?size=64" alt="mba2012" />
+				<a href="{xen:link 'player/mba2012'}">mba2012</a>
+				<p>Lead Developer</p>
+			</li>
+			<li>
+				<img src="https://crafatar.com/avatars/Jake_bagby?size=64" alt="Jake_bagby" />
+				<a href="{xen:link 'player/Jake_bagby'}">Jake_bagby</a>
+				<p>Community Manager</p>
+			</li>
+			<li>
+				<img src="https://crafatar.com/avatars/SoulPunisher?size=64" alt="SoulPunisher" />
+				<a href="{xen:link 'player/SoulPunisher'}">SoulPunisher</a>
+				<p>Administrator</p>
+			</li>
+		</ul>
+	</div>
+	
+	<h2 class="sectionHead lime">{xen:phrase senior_staff}</h2>
+	<ul class="avatars">
+		<xen:foreach loop="$ss" value="$username">
+			<li>
+				<a href="{xen:link 'player/{$username}'}">
+					<img src="https://crafatar.com/avatars/{$username}?size=36" alt="{$username}">
+				</a>
+			</li>		
+		</xen:foreach>
+	</ul>
+	
+	<h2 class="sectionHead green">{xen:phrase moderators}</h2>
+	<ul class="avatars">
+		<xen:foreach loop="$mods" value="$username">
+			<li>
+				<a href="{xen:link 'player/{$username}'}">
+					<img src="https://crafatar.com/avatars/{$username}?size=36" alt="{$username}">
+				</a>
+			</li>		
+		</xen:foreach>
+	</ul>
+</div>
+
+<div class="right">
+	<h2 class="sectionHead">Some kind of thingy</h2>
+	<h2 class="sectionHead">{xen:phrase newest_members}</h2>
+	<ul class="users">
+		<xen:foreach loop="$newest" value="$username">
+			<li>
+				<a href="{xen:link 'player/{$username}'}">
+					<img src="https://crafatar.com/avatars/{$username}?size=36" alt="{$username}">
+					<p>{$username}</p>
+				</a>
+			</li>		
+		</xen:foreach>
+	</ul>
+</div>]]></template>
+    <template title="player_rank.css" version_id="1" version_string="1.0.0"><![CDATA[div#summary p#urank {
+    margin: 80px 60px 0 0;
+    font-size: 19px;
+    color: #FFF;
+    letter-spacing: 0px;    
+    text-shadow: 0 1px 0 #e78807;
+    background: #e78807;
+    padding: 12px 15px 10px 15px;
+    float: right;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+div#summary p#urank.r100 {
+    text-shadow: 0 1px 0 #800080;
+    background: #800080;
+}
+div#summary p#urank.r99 {
+    text-shadow: 0 1px 0 #bb4b24;
+    background: #bb4b24;
+}
+
+div#summary p#urank.r97 {
+    text-shadow: 0 1px 0 #24d524;
+    background: #24d524;
+}
+
+div#summary p#urank.r95 {
+    text-shadow: 0 1px 0 #008000;
+    background: #008000;
+}
+
+div#summary p#urank.r92 {
+    text-shadow: 0 1px 0 #FFAA00;
+    background: #FFAA00;
+}
+
+div#summary p#urank.r7 {
+    text-shadow: 0 1px 0 #FF55FF;
+    background: #FF55FF;
+}
+
+div#summary p#urank.r6 {
+    text-shadow: 0 1px 0 #FF55FF;
+    background: #FF55FF;
+}
+
+div#summary p#urank.r3 {
+    text-shadow: 0 1px 0 #0f77a1;
+    background: #0f77a1;
+}
+
+div#summary p#urank.r2 {
+    text-shadow: 0 1px 0 #0f77a1;
+    background: #0f77a1;
+}]]></template>
+    <template title="player_report" version_id="1" version_string="1.0.0"><![CDATA[<xen:require css="player_report.css" />
+
+<xen:title>{xen:phrase report_player} <a href="{xen:link 'player/{$player.DisplayName}'}">{$player.DisplayName} <img src="https://crafatar.com/avatars/{$player.DisplayName}?size=22" alt="{$player.DisplayName}" /></a></xen:title>
+
+<xen:navigation>
+	<xen:breadcrumb href="{xen:link 'player/{$player.DisplayName}'}">{$player.DisplayName}</xen:breadcrumb>
+	<xen:breadcrumb href="{xen:link 'player/{$player.DisplayName}/report'}">{xen:phrase report_player}</xen:breadcrumb>
+</xen:navigation>
+
+<div id="report">
+	<form name="report" class="AutoValidator" data-redirect="on" action="{xen:link 'player/{$player.DisplayName}/report/submit'}" method="post">
+		<div class="reporttext">
+			<input name="report_content" type="text" placeholder="{xen:phrase please_enter_reason_for_reporting_this_player}">
+		</div>
+		<input type="hidden" name="reporting_id" value="{$visitor.customFields.CoreID}" />
+		<input type="hidden" name="cookie_check" value="1" />
+		<input type="hidden" name="redirect" value="{xen:if $redirect, $redirect, $requestPaths.requestUri}" />
+		<input type="hidden" name="_xfToken" value="{$visitor.csrf_token_page}" />
+		<input type="submit" value="{xen:phrase report_player}">
+	</form>
+</div>]]></template>
+    <template title="player_staff_list" version_id="1" version_string="1.0.0"><![CDATA[<xen:require css="players.css" />
+
+<xen:title>{xen:phrase staff_members}</xen:title>
+<xen:description>{xen:phrase staff_list_description}</xen:description>
+
+<xen:navigation>
+	<xen:breadcrumb href="{xen:link 'players/staff'}">{xen:phrase staff_members}</xen:breadcrumb>
+</xen:navigation>
+
+<div class="left">
+	<h2 class="sectionHead darkred">{xen:phrase administrators}</h2>
+	<div class="owners">
+		<ul>
+			<li>
+				<img src="https://crafatar.com/avatars/nfell2009?size=72" alt="nfell2009" />
+				<a href="{xen:link 'player/nfell2009'}">nfell2009</a>
+				<p>QuartzCraft Owner</p>
+			</li>
+			<li>
+				<img src="https://crafatar.com/avatars/mba2012?size=72" alt="mba2012" />
+				<a href="{xen:link 'player/mba2012'}">mba2012</a>
+				<p>Lead Developer</p>
+			</li>
+			<li>
+				<img src="https://crafatar.com/avatars/Jake_bagby?size=72" alt="Jake_bagby" />
+				<a href="{xen:link 'player/Jake_bagby'}">Jake_bagby</a>
+				<p>Community Manager</p>
+			</li>
+			<li>
+				<img src="https://crafatar.com/avatars/SoulPunisher?size=72" alt="SoulPunisher" />
+				<a href="{xen:link 'player/SoulPunisher'}"> SoulPunisher </a>
+				<p>Administrator</p>
+			</li>
+		</ul>
+	</div>
+	
+	<xen:if is="{$xenOptions.displayApplyStaff}">
+		<h2 class="sectionHead">{xen:phrase apply_for_staff}</h2>
+		{xen:raw $post.messageParsed}
+	</xen:if>
+</div>
+
+<div class="right">
+	<h2 class="sectionHead lime">{xen:phrase senior_staff}</h2>
+	<ul class="users">
+		<xen:foreach loop="$ss" value="$username">
+			<li>
+				<a href="{xen:link 'player/{$username}'}">
+					<img src="https://crafatar.com/avatars/{$username}?size=36" alt="{$username}">
+					<p>{$username}</p>
+				</a>
+			</li>		
+		</xen:foreach>
+	</ul>
+	<h2 class="sectionHead green">{xen:phrase moderators}</h2>
+	<ul class="users">
+		<xen:foreach loop="$mods" value="$username">
+			<li>
+				<a href="{xen:link 'player/{$username}'}">
+					<img src="https://crafatar.com/avatars/{$username}?size=36" alt="{$username}">
+					<p>{$username}</p>
+				</a>
+			</li>		
+		</xen:foreach>
+	</ul>
+</div>]]></template>
+    <template title="player_tab_links" version_id="1" version_string="1.0.0"><![CDATA[<ul class="secondaryContent blockLinksList">
+	<xen:if is="{$xenOptions.displayStaffList}"><li><a href="{xen:link 'players/staff'}">{xen:phrase staff_members}</a></li></xen:if>
+</ul>]]></template>
+    <template title="player_view" version_id="1" version_string="1.0.0"><![CDATA[<xen:require css="players.css" />
+<xen:require css="player_view.css" />
+<xen:require css="player_rank.css" />
+
+<xen:title>{$player.DisplayName}</xen:title>
+<xen:h1></xen:h1> <xen:comment>H1 empty, do not render.</xen:comment>
+
+<xen:navigation>
+	<xen:breadcrumb href="{xen:link 'player/{$player.DisplayName}'}">{$player.DisplayName}</xen:breadcrumb>
+</xen:navigation>
+
+<div id="summary">
+	<div id="uinfo">
+		<div class="avatar">
+			<img src="https://crafatar.com/avatars/{$player.DisplayName}?size=124" alt="{$player.DisplayName}" />
+		</div>
+		<h1><b>{$player.DisplayName}</b></h1>
+		<p class="lastSeen">{xen:phrase currently} offline</p>
+		<ul>
+			<li class="l"><a href="{xen:link 'player/{$player.DisplayName}/report'}">{xen:phrase report_player}</a></li>
+		</ul>
+	</div>
+	<p id="urank" class="r{$group.id}">{$group.full_group_name}</p>
+</div>
+
+<div id="stats">
+
+</div>]]></template>
+    <template title="player_view.css" version_id="1" version_string="1.0.0"><![CDATA[div#summary {
+    background: url('http://hivemc.com/media/images/user_profile_bg.jpg') no-repeat top center #04131f;
+    width: 100%;
+    height: 206px;
+    float: left;
+}
+
+div#summary div#uinfo {
+    width: 700px;
+    height: 135px;
+    float: left;
+}
+
+div#summary div#uinfo div.avatar {
+    margin: 20px 20px 0 10px;
+    width: 155px;
+    height: 155px;
+    float: left;
+}
+
+div#summary div#uinfo div.avatar img {
+    margin: 15px;
+    width: 124px;
+    height: 124px;
+    float: left;
+}
+
+div#summary div#uinfo h1 {
+    width: 500px;
+    font-size: 42px;
+    margin: 12px 0 0 0;
+    text-shadow: 0px -2px 0px #0b2a3a;
+    float: left;
+    color: #FFF;
+    padding-top: 20px;
+}
+
+div#summary div#uinfo p {
+    width: 500px;
+    color: #7d7d7d;
+    margin: 8px 0 0 0;
+    float: left;
+}
+
+div#summary div#uinfo p b {
+    color: #fece21;
+    font-weight: normal;
+}
+
+div#summary div#uinfo p i {
+    font-size: 10px;
+    margin: 3px 5px 0 0;
+    float: left;
+}
+
+div#summary div#uinfo p i.online {
+    color: #36e214
+}
+
+div#summary div#uinfo p i.offline {
+    color: #e76250
+}
+
+div#summary div#uinfo ul {
+    margin: 15px 0 0 0;
+    float: left;
+    width: 500px;
+}
+
+div#summary div#uinfo ul li {
+    padding: 7px 10px 7px 10px;
+    margin: 0 10px 0 0;
+    font-size: 15px;
+    display: inline;
+    background: #154760;
+    text-shadow: 0 1px 0 #10384c;
+    color: #FFF;
+    float: left;
+    -moz-border-radius: 3px;
+    -webkit-border-after: 3px;
+    border-radius: 3px;
+}
+
+div#summary div#uinfo a {
+    color: #0f77a1;
+    text-decoration: none;
+    font-weight: normal;
+    -webkit-transition: opacity 0.2s linear;
+}
+
+div#summary div#uinfo a:hover {
+    color: #00a8ff;
+}]]></template>
+  </templates>
+  <public_template_modifications/>
+  <bb_code_media_sites/>
+</addon>

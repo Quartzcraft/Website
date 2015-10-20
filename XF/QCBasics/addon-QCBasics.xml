@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon addon_id="QCBasics" title="QC Basics" version_string="1.0.0" version_id="1" url="http://quartzcraft.co.uk" install_callback_class="" install_callback_method="" uninstall_callback_class="" uninstall_callback_method="">
+  <admin_navigation/>
+  <admin_permissions/>
+  <admin_style_properties/>
+  <admin_templates/>
+  <admin_template_modifications>
+    <modification template="appearance_splash" modification_key="appearance_splash_template_mod" description="Adds the Template Modifications splash icon." execution_order="10" enabled="1" action="str_replace">
+      <find><![CDATA[<!-- slot: pre_templates -->]]></find>
+      <replace><![CDATA[$0
+<li><a href="{xen:adminlink 'template-modifications'}" class="styles_templates">
+	<span class="icon"><span></span></span>
+	<span class="linkText">{xen:phrase template_modifications}</span>
+</a></li>]]></replace>
+    </modification>
+  </admin_template_modifications>
+  <code_events/>
+  <code_event_listeners/>
+  <cron/>
+  <email_templates/>
+  <email_template_modifications/>
+  <optiongroups>
+    <group group_id="qc_basic" display_order="1" debug_only="0"/>
+    <option option_id="displayAppealNotice" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>1</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="qc_basic" display_order="1"/>
+    </option>
+    <option option_id="restApiUrl" edit_format="textbox" data_type="string" can_backup="1">
+      <default_value></default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="qc_basic" display_order="10"/>
+    </option>
+  </optiongroups>
+  <permissions>
+    <permission_groups/>
+    <permissions/>
+    <interface_groups/>
+  </permissions>
+  <phrases>
+    <phrase title="mcname" version_id="1" version_string="1.0.0"><![CDATA[Minecraft Username]]></phrase>
+    <phrase title="option_displayAppealNotice" version_id="1" version_string="1.0.0"><![CDATA[Display Ban Appeal Message]]></phrase>
+    <phrase title="option_displayAppealNotice_explain" version_id="1" version_string="1.0.0"><![CDATA[Toggle whether the ban appeal message is displayed on staff profiles or not.]]></phrase>
+    <phrase title="option_group_qc_basic" version_id="1" version_string="1.0.0"><![CDATA[[QC] Basic Opions]]></phrase>
+    <phrase title="option_group_qc_basic_description" version_id="1" version_string="1.0.0"><![CDATA[Basic QuartzCraft options]]></phrase>
+    <phrase title="option_restApiUrl" version_id="1" version_string="1.0.0"><![CDATA[REST API URL]]></phrase>
+    <phrase title="option_restApiUrl_explain" version_id="1" version_string="1.0.0"><![CDATA[URL of the QC REST API. Include the trailing slash (/)]]></phrase>
+    <phrase title="style_property_bannerPadding_description_master" version_id="1" version_string="1.0.0"><![CDATA[Specify the padding around the banners on a member card.]]></phrase>
+    <phrase title="style_property_bannerPadding_master" version_id="1" version_string="1.0.0"><![CDATA[Member Card Banner Padding]]></phrase>
+    <phrase title="style_property_group_QCStyleOptions_master" version_id="1" version_string="1.0.0"><![CDATA[QuartzCraft Style Options]]></phrase>
+    <phrase title="style_property_group_QCStyleOptions_master_desc" version_id="1" version_string="1.0.0"><![CDATA[Some custom modifications for QuartzCraft can be found here]]></phrase>
+    <phrase title="your_mcname_or_email_address" version_id="1" version_string="1.0.0"><![CDATA[Your Minecraft Username or email address]]></phrase>
+  </phrases>
+  <route_prefixes/>
+  <style_properties>
+    <property property_name="bannerPadding" property_type="scalar" definition="1" group_name="QCStyleOptions" title="Member Card Banner Padding" description="Specify the padding around the banners on a member card." css_components="" scalar_type="number" scalar_parameters="" display_order="1" sub_group=""><![CDATA[2px]]></property>
+    <group group_name="QCStyleOptions" display_order="1">
+      <title>QuartzCraft Style Options</title>
+      <description>Some custom modifications for QuartzCraft can be found here</description>
+    </group>
+  </style_properties>
+  <templates/>
+  <public_template_modifications>
+    <modification template="member_card" modification_key="member_card_banner_display" description="Displays a users banners on their member card" execution_order="10" enabled="1" action="str_replace">
+      <find><![CDATA[<div class="userBlurb">{xen:helper userBlurb, $user, 0}</div>]]></find>
+      <replace><![CDATA[<div class="userBanners" style="padding-top:{xen:property bannerPadding}; padding-bottom:{xen:property bannerPadding}">{xen:helper userBanner, $user}</div>
+$0]]></replace>
+    </modification>
+    <modification template="member_view" modification_key="member_view_staff_notice" description="Adds a notice on staff pages." execution_order="10" enabled="1" action="str_replace">
+      <find><![CDATA[<li id="profilePosts" class="profileContent">]]></find>
+      <replace><![CDATA[$0
+<xen:if is="{$user.user_id} == 18">
+<p class="importantMessage">If you need to contact Fellyboy for any reason, please contact <a href="{$xenOptions.homePageUrl}/index.php?members/nfell2009.1">nfell2009</a>.</p>
+</xen:if>
+<xen:if is="{$user.is_staff} == 1 && {$xenOptions.displayAppealNotice} == 1">
+<p class="importantMessage"><b>DO NOT</b> post ban appeals on a staff members profile. Please <a href="{$xenOptions.homePageUrl}/index.php?conversations/add&to={$user.username}">private message</a> them by <a href="{$xenOptions.homePageUrl}/index.php?conversations/add&to={$user.username}">clicking here</a>.</p>
+</xen:if>]]></replace>
+    </modification>
+    <modification template="sidebar_visitor_panel" modification_key="qcb_ sidebar_visitor_panel_phrase_change" description="Changes the sign up button to Log in or Sign up" execution_order="10" enabled="1" action="str_replace">
+      <find><![CDATA[<label for="LoginControl" id="SignupButton"><a href="{xen:link login}" class="inner">{xen:if $xenOptions.registrationSetup.enabled, {xen:phrase sign_up_now}, {xen:phrase log_in}}</a></label>]]></find>
+      <replace><![CDATA[<label for="LoginControl" id="SignupButton"><a href="{xen:link login}" class="inner">{xen:if $xenOptions.registrationSetup.enabled, {xen:phrase log_in_or_sign_up}, {xen:phrase log_in}}</a></label>]]></replace>
+    </modification>
+    <modification template="login_bar_form" modification_key="qcb_login_bar_form" description="" execution_order="10" enabled="1" action="str_replace">
+      <find><![CDATA[<dl class="ctrlUnit">
+			<dt><label for="LoginControl">{xen:phrase your_name_or_email_address}:</label></dt>
+			<dd><input type="text" name="login" id="LoginControl" class="textCtrl" tabindex="101" /></dd>
+		</dl>]]></find>
+      <replace><![CDATA[<dl class="ctrlUnit">
+			<dt><label for="LoginControl">{xen:phrase your_mcname_or_email_address}:</label></dt>
+			<dd><input type="text" name="login" id="LoginControl" class="textCtrl" tabindex="101" /></dd>
+		</dl>]]></replace>
+    </modification>
+    <modification template="EWRporta_Promote" modification_key="qcb_promotion_timezone" description="Adds the ability to modify the timezone of a promotion" execution_order="10" enabled="0" action="str_replace">
+      <find><![CDATA[<input type="hidden" name="zone" value="{$datetime.zone}" />]]></find>
+      <replace><![CDATA[<input type="visible" name="zone" value="{$datetime.zone}" />]]></replace>
+    </modification>
+  </public_template_modifications>
+  <bb_code_media_sites/>
+</addon>
