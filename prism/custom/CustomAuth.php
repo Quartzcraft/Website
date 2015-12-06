@@ -28,7 +28,7 @@ class CustomAuth extends Auth {
         // Here you'd run a query to your private system
         // authenticating the username/password
 
-        if(_authXF($username, $password)) {
+        if($this::_authXF($username, $password)) {
 
             // If this page returns true, the login system will auto set
             // a hash and the username entered to the form, so that we
@@ -79,13 +79,13 @@ class CustomAuth extends Auth {
 		curl_close($handle);
 		$json_decode = json_decode($output, true);
 		if ($http_status_code == 200) {
-			if(_hasCorrectPerms($json_decode['primary_group_id'])) {
+			if($this::_hasCorrectPerms($json_decode['primary_group_id'])) {
 				return true;
 			}
 								
 			$secondary_group_ids = explode ( ",", $json_decode['secondary_group_ids']);
 			foreach ($secondary_group_ids as $key) {
-				if(_hasCorrectPerms($key)) {
+				if($this::_hasCorrectPerms($key)) {
 					return true;
 				}
 			}
