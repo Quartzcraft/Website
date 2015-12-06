@@ -55,7 +55,7 @@ class CustomAuth extends Auth {
 		curl_close($handle);
 		$json_decode = json_decode($output, true);
 		if ($http_status_code == 200) {
-		    if(_checkPerms($username, $json_decode['hash'])) {
+		    if($this::_checkPerms($username, $json_decode['hash'])) {
 				return true;
 			} else {
 				return false;
@@ -97,7 +97,7 @@ class CustomAuth extends Auth {
 	}
 				
 	function _hasCorrectPerms($groupId) {
-		$groups_access = explode (GROUPS_WITH_ACCESS);
+		$groups_access = explode(",", GROUPS_WITH_ACCESS);
 		foreach ($groups_access as $group) {
 			if($groupId == $group) {
 				return true;
