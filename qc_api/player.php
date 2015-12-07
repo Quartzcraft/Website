@@ -66,7 +66,7 @@
 			case "updatePlayerGroup":
 				if (isset($_GET["id"]) && isset($_GET['apikey']) && isset($_GET['primaryGroupID'])) {
 					if($_GET['apikey'] == _API_KEY_) {
-						$value = updatePlayerGroup($_GET['id'], $_GET('primaryGroupID'));
+						$value = updatePlayerGroup($_GET['id'], $_GET['primaryGroupID']);
 					} else {
 						$value = array("error" => "Invalid API key");
 					}
