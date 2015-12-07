@@ -42,7 +42,7 @@
 					//Get player names
 					$value = getMods($_GET["value"]);
 				} else {
-					$value = getMods();
+					$value = getMods(null);
 				}
 			   	break;
 			case "getSS":
@@ -50,7 +50,7 @@
 					//Get player names
 					$value = getSeniorStaff($_GET["value"]);
 				} else {
-					$value = getSeniorStaff();
+					$value = getSeniorStaff(null);
 				}
 			   	break;
 			case "getNewestPlayers":
@@ -58,7 +58,7 @@
 					//Get player names
 					$value = getNewestPlayers($_GET["limit"], $_GET['value']);
 				} else {
-					$value = getNewestPlayers(null);				}
+					$value = getNewestPlayers(null, null);				}
 			   	break;
 			case "getNumPlayers":
 				$value = getNumPlayers();

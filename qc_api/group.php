@@ -18,7 +18,7 @@
 				}
 			   	break;
 			case "getAllGroups":
-				$value = getAllGroups();
+				$value = getAllGroups(null);
 				if($value == false)
 					$value = array("error" => "No groups");
 				break;
