@@ -143,5 +143,9 @@
 		}
 		return $newest;
 	}
+
+	function updatePlayerGroup($id, $value) {
+
+	}
 	
 ?>
