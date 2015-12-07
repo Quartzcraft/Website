@@ -65,7 +65,7 @@ class CustomAuth extends Auth {
 		}
 	}
 	
-	function _checkPerms($username, $hash) {
+	private function _checkPerms($username, $hash) {
 		$post_url = XenAPI_URL;
 		$post_data = array('action' => 'getUser',
 		                   'hash'  => $username . ':' . $hash);
@@ -96,7 +96,7 @@ class CustomAuth extends Auth {
 		}
 	}
 				
-	function _hasCorrectPerms($groupId) {
+	private function _hasCorrectPerms($groupId) {
 		$groups_access = explode(",", GROUPS_WITH_ACCESS);
 		foreach ($groups_access as $group) {
 			if($groupId == $group) {

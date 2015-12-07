@@ -87,7 +87,7 @@ $auth->addUser( "admin", "prism" );
 // directions, and then be sure to include your custom
 // file here:
 
-//include('custom/CustomAuth.php');
+include('custom/CustomAuth.php');
 
 // ------------------------------------------
 // QUARTZCRAFT ADDITIONS
