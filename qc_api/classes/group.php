@@ -11,7 +11,8 @@
 			} else {
 				return array("error" => "No group");
 			}
-		} 
+		}
+		return false;
 	}
 	
 	function getAllGroups($value) {
@@ -29,5 +30,6 @@
 			
 			return $groups;
 		}
+		return false;
 	}
 ?>
