@@ -145,7 +145,7 @@
 	}
 
 	function updatePlayerGroup($id, $value) {
-
+		//TODO need to add something to this
 	}
 	
 ?>
