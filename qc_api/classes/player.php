@@ -39,8 +39,7 @@
 	function reportPlayer($id, $reason, $reporting_id) {
 		$con = QC_Database::getQuartzcoreDatabase();
 		if(isset($id) && isset($reason)) {
-			if($player_result = mysqli_query($con, 'SELECT * FROM PlayerData WHERE DisplayName="' . $username . '";')) {
-				$player = mysqli_fetch_array($player_result);
+			if($player = getPlayer($id)) {
 
 				if(mysqli_query($con, 'INSERT INTO Reports (reported_user_id, reporting_user_id, report_content) VALUES (' . $id . ', ' . $reporting_id . ', "' . $reason . '");')) {
 				    return array("reported" => true);
