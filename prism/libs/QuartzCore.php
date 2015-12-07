@@ -19,8 +19,8 @@ class QuartzCore {
 	public function getPlayer($id) {
 		$result = mysqli_query($this->qc_db, "SELECT * FROM PlayerData WHERE id='" . $id . "' LIMIT 1;");
 		if($result == 0) {
-			echo '<p style="color:white">An unexpected database error occured retrieving player data from id</p>';
-			echo '<p style="color:black">An unexpected database error occured retrieving player data from id</p>';
+			echo '<p style="color:white">An unexpected database error occurred retrieving player data from id</p>';
+			echo '<p style="color:black">An unexpected database error occurred retrieving player data from id</p>';
 			exit();
 		}
 		$row = mysqli_fetch_array($result);
@@ -30,8 +30,8 @@ class QuartzCore {
 	public function getPlayerFromName($displayname) {
 		$result = mysqli_query($this->qc_db, 'SELECT * FROM PlayerData WHERE DisplayName="' . $displayname . '" LIMIT 1;');
 		if($result == 0) {
-			echo '<p style="color:white">An unexpected database error occured retrieving player data from name</p>';
-			echo '<p style="color:black">An unexpected database error occured retrieving player data from name</p>';
+			echo '<p style="color:white">An unexpected database error occurred retrieving player data from name</p>';
+			echo '<p style="color:black">An unexpected database error occurred retrieving player data from name</p>';
 			exit();
 		}
 		$row = mysqli_fetch_array($result);
@@ -65,8 +65,8 @@ class QuartzCore {
 	public function getReport($id) {
 		$result = mysqli_query($this->qc_db, "SELECT * FROM Reports WHERE id='" . $id . "' LIMIT 1;");
 		if($result == 0) {
-			echo '<p style="color:white">An unexpected database error occured retrieving report from id</p>';
-			echo '<p style="color:black">An unexpected database error occured retrieving report from id</p>';
+			echo '<p style="color:white">An unexpected database error occurred retrieving report from id</p>';
+			echo '<p style="color:black">An unexpected database error occurred retrieving report from id</p>';
 			exit();
 		}
 		$row = mysqli_fetch_array($result);
