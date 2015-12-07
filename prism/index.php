@@ -20,36 +20,6 @@
 		header("Location: login.php");
 	}
 	
-	function displayAnnouncements() {
-		$post_url = XenAPI_URL;
-		$post_data = array('action' => 'getthreads',
-		                   'hash'  => 'API_KEY',
-							'node_id' => STAFF_ACCOUNCEMENTS_FORUM,
-							'order_by' => 'post_date',
-							'order' => 'desc',
-							'limit' => '5');
-		$handle = curl_init();
-		curl_setopt($handle, CURLOPT_URL, $post_url);
-		curl_setopt($handle, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($handle, CURLOPT_POST, 1);
-		curl_setopt($handle, CURLOPT_POSTFIELDS, $post_data);
-		$output = curl_exec($handle);
-		$http_status_code = curl_getinfo($handle, CURLINFO_HTTP_CODE);
-		curl_close($handle);
-		$json_decode = json_decode($output, true);
-		if ($http_status_code == 200) {
-			$threads = $json_decode['threads'];
-								
-			foreach ($threads as $thread) {
-				echo '<li><a href="http://quartzcraft.co.uk/threads/' . $thread['thread_id'] . '">' . $thread['title'] . '</a></li>';
-			}
-					
-			return false;
-		} else {
-			return false;
-		}
-	}
-	
 	function displayReports() {
 		
 	}
@@ -84,18 +54,6 @@
         <article>
          	<div class="container">
             	<h1>Prism</h1>
-				<div class="row">
-					<div class="span6">
-			 			<div class="well">
-							<h4>Staff Announcements and Updates</h4>
-						   	<div class="row">
-									<ul>
-										<?php displayAnnouncements(); ?>
-									</ul>	
-							</div>
-						</div>
-					</div>
-				</div>
 				<div class="row">
 					<div class="span6">
 			    		<div class="well">

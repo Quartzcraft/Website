@@ -103,5 +103,3 @@ define("QC_PORT", 3306);
 define("XenAPI_URL", "localhost/~nicholasbassett/xf_qc/api.php");
 //The array of group ids which have permission to access prism.
 define("GROUPS_WITH_ACCESS", "3,4");
-//The id of the staff announcements forum.
-define("STAFF_ACCOUNCEMENTS_FORUM", "2");
